@@ -24,6 +24,11 @@ export default class LearnTwilioFlexPlugin extends FlexPlugin {
 
     const options: Flex.ContentFragmentProps = { sortOrder: -1 };
     flex.AgentDesktopView.Panel1.Content.add(<CustomTaskListContainer key="LearnTwilioFlexPlugin-component" />, options);
+    flex.CRMContainer.defaultProps.uriCallback = (task) => {
+      return task 
+        ? `https://bing.com/?q=${task.attributes.name}`
+        : 'https://bing.com';
+    }
   }
 
   /**
