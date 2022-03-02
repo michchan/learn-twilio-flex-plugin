@@ -22,8 +22,8 @@ export default class LearnTwilioFlexPlugin extends FlexPlugin {
   async init(flex: typeof Flex, manager: Flex.Manager): Promise<void> {
     this.registerReducers(manager);
 
-    const options: Flex.ContentFragmentProps = { sortOrder: -1 };
-    flex.AgentDesktopView.Panel1.Content.add(<CustomTaskListContainer key="LearnTwilioFlexPlugin-component" />, options);
+    flex.AgentDesktopView.Panel1.Content.add(<CustomTaskListContainer key="LearnTwilioFlexPlugin-component" />, { sortOrder: -1 });
+    flex.AgentDesktopView.Panel1.Content.add(<CustomTaskListContainer key="LearnTwilioFlexPlugin-component2" />, { align: 'end' });
     flex.CRMContainer.defaultProps.uriCallback = (task) => {
       return task 
         ? `https://bing.com/?q=${task.attributes.name}`
